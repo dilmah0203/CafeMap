@@ -1,8 +1,8 @@
 package com.flab.CafeMap.web.cafe;
 
 import com.flab.CafeMap.web.api.KakaoMapApi;
-import com.flab.CafeMap.web.api.dto.KakaoMapApiRequest;
-import com.flab.CafeMap.web.api.dto.KakaoMapApiResponse;
+import com.flab.CafeMap.web.user.dto.KakaoMapApi.KakaoMapApiRequest;
+import com.flab.CafeMap.web.user.dto.KakaoMapApi.KakaoMapApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

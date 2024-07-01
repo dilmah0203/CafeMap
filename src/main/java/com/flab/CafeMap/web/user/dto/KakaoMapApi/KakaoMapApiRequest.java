@@ -1,6 +1,4 @@
-package com.flab.CafeMap.web.api.dto;
-
-import java.util.List;
+package com.flab.CafeMap.web.user.dto.KakaoMapApi;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,8 +12,8 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class KakaoMapApiResponse {
+public class KakaoMapApiRequest {
 
-    private Meta meta;
-    private List<Documents> document;
+    private Double x;
+    private Double y;
 }

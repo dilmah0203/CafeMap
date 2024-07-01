@@ -6,7 +6,7 @@ import com.flab.CafeMap.domain.user.dao.UserAddressMapper;
 import com.flab.CafeMap.domain.user.exception.UserNotFoundException;
 import com.flab.CafeMap.web.user.dto.UserAddressSaveRequest;
 import com.flab.CafeMap.web.user.dto.UserSaveRequest;
-import com.flab.CafeMap.web.api.dto.KakaoMapApiRequest;
+import com.flab.CafeMap.web.user.dto.KakaoMapApi.KakaoMapApiRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

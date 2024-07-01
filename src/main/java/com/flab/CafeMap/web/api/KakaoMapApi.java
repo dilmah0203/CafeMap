@@ -1,7 +1,7 @@
 package com.flab.CafeMap.web.api;
 
-import com.flab.CafeMap.web.api.dto.KakaoMapApiRequest;
-import com.flab.CafeMap.web.api.dto.KakaoMapApiResponse;
+import com.flab.CafeMap.web.user.dto.KakaoMapApi.KakaoMapApiRequest;
+import com.flab.CafeMap.web.user.dto.KakaoMapApi.KakaoMapApiResponse;
 
 import java.net.URI;
 
