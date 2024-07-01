@@ -28,6 +28,7 @@ jacocoTestReport {
                     "com/flab/CafeMap/**Application.class",
                     "com/flab/CafeMap/web/api/KakaoMapApi.class",
                     "com/flab/CafeMap/web/user/dto/**",
+                    "com/flab/CafeMap/web/cafe/**",
                     "com/flab/CafeMap/web/reservation/**",
                     "com/flab/CafeMap/web/config/EmbeddedRedisConfig.class",
                     "com/flab/CafeMap/domain/reservation/**",
