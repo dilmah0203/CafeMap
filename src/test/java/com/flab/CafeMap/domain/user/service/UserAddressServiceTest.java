@@ -6,7 +6,7 @@ import com.flab.CafeMap.domain.user.dao.UserAddressMapper;
 import com.flab.CafeMap.domain.user.exception.UserNotFoundException;
 import com.flab.CafeMap.web.user.dto.UserAddressSaveRequest;
 import com.flab.CafeMap.web.user.dto.UserSaveRequest;
-import com.flab.CafeMap.web.user.dto.kakao.KakaoMapApiRequest;
+import com.flab.CafeMap.web.api.dto.KakaoMapApiRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -46,8 +46,8 @@ class UserAddressServiceTest {
         UserSaveRequest userSaveRequest = createUser();
         UserAddressSaveRequest userAddressSaveRequest = createUserAddress();
         KakaoMapApiRequest kakaoMapApiRequest = KakaoMapApiRequest.builder()
-                .x("127.031516177")
-                .y("37.514589514733")
+                .x(127.031516177)
+                .y(37.514589514733)
                 .build();
         User user = userService.addUser(userSaveRequest);
 

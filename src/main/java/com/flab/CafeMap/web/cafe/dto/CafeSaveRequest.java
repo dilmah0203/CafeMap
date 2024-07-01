@@ -21,35 +21,23 @@ import lombok.NoArgsConstructor;
 public class CafeSaveRequest {
 
     @NotNull
-    private String loginId;
+    private Long id;
 
     @NotNull
-    private String cafeId;
+    private String loginId;
 
     @NotNull
     private String name;
 
     @NotNull
-    private String streetAddress;
-
-    @NotNull
-    private String detailAddress;
-
-    @NotNull
-    private Double latitude;
-
-    @NotNull
-    private Double longitude;
+    private String address;
 
     @NotNull
     private String createdBy;
 
     public Cafe toEntity() {
         return Cafe.builder()
-            .cafeId(this.cafeId)
             .name(this.name)
-            .latitude(this.latitude)
-            .longitude(this.longitude)
             .build();
     }
 }

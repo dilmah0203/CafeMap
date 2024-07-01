@@ -1,7 +1,5 @@
 package com.flab.CafeMap.domain.reservation.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
@@ -11,9 +9,7 @@ import com.flab.CafeMap.domain.reservation.exception.CafeNotFoundException;
 import com.flab.CafeMap.domain.user.User;
 import com.flab.CafeMap.domain.user.UserAddress;
 import com.flab.CafeMap.domain.user.dao.UserMapper;
-import com.flab.CafeMap.domain.user.service.UserAddressService;
 import com.flab.CafeMap.web.reservation.dto.ReservationSaveRequest;
-import com.flab.CafeMap.web.reservation.dto.ReservationSaveResponse;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import org.junit.jupiter.api.Disabled;
@@ -56,7 +52,6 @@ class ReservationServiceTest {
 
         Cafe cafe = Cafe.builder()
             .id(1L)
-            .cafeId("cafeId")
             .name("testCafe")
             .latitude(37.513863998587)
             .longitude(127.0312783056)

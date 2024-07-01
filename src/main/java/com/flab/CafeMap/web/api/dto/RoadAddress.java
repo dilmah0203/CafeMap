@@ -1,4 +1,4 @@
-package com.flab.CafeMap.web.user.dto.kakao;
+package com.flab.CafeMap.web.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

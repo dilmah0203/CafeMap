@@ -1,10 +1,9 @@
 package com.flab.CafeMap.web.cafe;
 
-import com.flab.CafeMap.domain.cafe.service.CafeService;
-import com.flab.CafeMap.web.cafe.dto.CafeSaveRequest;
-import com.flab.CafeMap.web.cafe.dto.CafeSaveResponse;
+import com.flab.CafeMap.web.api.KakaoMapApi;
+import com.flab.CafeMap.web.api.dto.KakaoMapApiRequest;
+import com.flab.CafeMap.web.api.dto.KakaoMapApiResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cafes")
 public class CafeController {
 
-    private final CafeService cafeService;
+    private final KakaoMapApi kakaoMapApi;
 
-    @PostMapping
-    public ResponseEntity<CafeSaveResponse> addCafe(@RequestBody CafeSaveRequest cafeSaveRequest) {
-        cafeService.addCafe(cafeSaveRequest);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    @PostMapping("/restaurant")
+    public ResponseEntity<KakaoMapApiResponse> getRestaurant(
+            @RequestBody KakaoMapApiRequest kakaoMapApiRequest) {
+        ResponseEntity<KakaoMapApiResponse> response = kakaoMapApi.getAddressByCoordinates(
+                kakaoMapApiRequest);
+        return ResponseEntity.ok().body(response.getBody());
     }
 }

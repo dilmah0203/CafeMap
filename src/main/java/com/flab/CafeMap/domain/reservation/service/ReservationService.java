@@ -11,7 +11,10 @@ import com.flab.CafeMap.domain.user.User;
 import com.flab.CafeMap.domain.user.dao.UserMapper;
 import com.flab.CafeMap.web.reservation.dto.ReservationSaveRequest;
 import com.flab.CafeMap.web.reservation.dto.ReservationSaveResponse;
+
 import java.time.LocalDateTime;
+import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,27 +30,31 @@ public class ReservationService {
     @Transactional
     public ReservationSaveResponse addReservation(ReservationSaveRequest reservationSaveRequest, String loginId) {
         User user = userMapper.selectUserByLoginId(loginId)
-            .orElseThrow(() -> new UserIdNotFoundException());
+                .orElseThrow(() -> new UserIdNotFoundException());
 
-        Long cafeId = reservationSaveRequest.getCafeId();
-        Cafe cafe = cafeMapper.selectCafeById(cafeId)
-            .orElseThrow(() -> new CafeNotFoundException());
 
-        userMapper.insertUser(user);
+        Cafe cafe = Cafe.builder()
+                .id(reservationSaveRequest.getCafeId())
+                .name(reservationSaveRequest.getCafeName())
+                .address(reservationSaveRequest.getCafeAddress())
+                .build();
+
+        cafeMapper.insertCafe(cafe);
 
         Reservation reservation = Reservation.builder()
-            .userId(user.getId())
-            .cafeId(cafe.getId())
-            .reservationStatus(ReservationStatus.CONFIRMED)
-            .createdAt(LocalDateTime.now())
-            .build();
+                .userId(user.getId())
+                .cafeId(cafe.getId())
+                .reservationStatus(ReservationStatus.CONFIRMED)
+                .createdAt(LocalDateTime.now())
+                .build();
 
         reservationMapper.insertReservation(reservation);
 
         return ReservationSaveResponse.builder()
-            .userId(user.getId())
-            .cafeId(cafe.getId())
-            .reservationTime(reservation.getCreatedAt())
-            .build();
+                .userId(user.getId())
+                .cafeId(cafe.getId())
+                .cafeName(cafe.getName())
+                .reservationTime(reservation.getCreatedAt())
+                .build();
     }
 }

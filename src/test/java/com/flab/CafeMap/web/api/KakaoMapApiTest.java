@@ -1,7 +1,7 @@
 package com.flab.CafeMap.web.api;
 
-import com.flab.CafeMap.web.user.dto.kakao.KakaoMapApiRequest;
-import com.flab.CafeMap.web.user.dto.kakao.KakaoMapApiResponse;
+import com.flab.CafeMap.web.api.dto.KakaoMapApiRequest;
+import com.flab.CafeMap.web.api.dto.KakaoMapApiResponse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -28,13 +28,14 @@ class KakaoMapApiTest {
     @DisplayName("카테고리와 좌표 정보로 카페 정보를 받아오는 API 테스트")
     void getAddressByCoordinates() {
 
-        String x = "127.423084873712";
-        String y = "37.0789561558879";
+        Double x = 127.423084873712;
+        Double y = 37.0789561558879;
 
         KakaoMapApiRequest request = KakaoMapApiRequest.builder()
                 .x(x)
                 .y(y)
                 .build();
+
         //given
         ResponseEntity<KakaoMapApiResponse> response = kakaoMapApi.getAddressByCoordinates(request);
 

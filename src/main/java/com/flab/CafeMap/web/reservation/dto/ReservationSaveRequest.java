@@ -14,13 +14,16 @@ import lombok.NoArgsConstructor;
 public class ReservationSaveRequest {
 
     @NotNull
-    private Long id;
-
-    @NotNull
     private Long userId;
 
     @NotNull
     private Long cafeId;
+
+    @NotNull
+    private String cafeName;
+
+    @NotNull
+    private String cafeAddress;
 
     @NotNull
     private LocalDateTime reservationTime;

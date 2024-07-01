@@ -20,5 +20,11 @@ public class ReservationSaveResponse {
     private Long cafeId;
 
     @NotNull
+    private String cafeName;
+
+    @NotNull
+    private String cafeAddress;
+
+    @NotNull
     private LocalDateTime reservationTime;
 }
